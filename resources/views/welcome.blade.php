@@ -9,6 +9,6 @@
     @parent
 
     <script>
-        actions.TitleBar.create(app, { title: 'Welcome' });
+        actions.TitleBar.create(app, { title: 'Welcome to shopify app development using laravel' });
     </script>
 @endsection

@@ -129,7 +129,7 @@ return [
     |
     */
 
-    'app_name' => env('SHOPIFY_APP_NAME', 'Shopify App'),
+    'app_name' => env('SHOPIFY_APP_NAME', 'Laravel App'),
 
     /*
     |--------------------------------------------------------------------------
@@ -154,7 +154,7 @@ return [
     |
     */
 
-    'api_key' => env('SHOPIFY_API_KEY', ''),
+    'api_key' => env('SHOPIFY_API_KEY', '4da75716674e3d59cc59a567099e80a8'),
 
     /*
     |--------------------------------------------------------------------------
@@ -165,7 +165,7 @@ return [
     |
     */
 
-    'api_secret' => env('SHOPIFY_API_SECRET', ''),
+    'api_secret' => env('SHOPIFY_API_SECRET', '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'),
 
     /*
     |--------------------------------------------------------------------------
@@ -176,7 +176,7 @@ return [
     |
     */
 
-    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_products,write_products,read_themes,write_themes,read_customers,read_orders'),
+    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_products,write_products'),
 
     /*
     |--------------------------------------------------------------------------
