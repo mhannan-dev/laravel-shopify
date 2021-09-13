@@ -3,10 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <title>{{ \Osiset\ShopifyApp\Util::getShopifyConfig('app_name') }}</title>
+
+        <title>{{ config('shopify-app.app_name') }}</title>
+        <script src="https://unpkg.com/turbolinks"></script>
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
         @yield('styles')
     </head>
+
     <body>
         <div class="app-wrapper">
             <div class="app-content">
@@ -16,28 +21,25 @@
                 </main>
             </div>
         </div>
-        @if(\Osiset\ShopifyApp\Util::getShopifyConfig('appbridge_enabled'))
-            <script src="https://unpkg.com/@shopify/app-bridge{{ \Osiset\ShopifyApp\Util::getShopifyConfig('appbridge_version') ? '@'.config('shopify-app.appbridge_version') : '' }}"></script>
-            <script src="https://unpkg.com/@shopify/app-bridge-utils{{ \Osiset\ShopifyApp\Util::getShopifyConfig('appbridge_version') ? '@'.config('shopify-app.appbridge_version') : '' }}"></script>
-            <script
-                @if(\Osiset\ShopifyApp\Util::getShopifyConfig('turbo_enabled'))
-                    data-turbolinks-eval="false"
-                @endif
-            >
+
+        @if(config('shopify-app.appbridge_enabled'))
+            <script src="https://unpkg.com/@shopify/app-bridge{{ config('shopify-app.appbridge_version') ? '@'.config('shopify-app.appbridge_version') : '' }}"></script>
+            <script>
                 var AppBridge = window['app-bridge'];
-                var actions = AppBridge.actions;
-                var utils = window['app-bridge-utils'];
                 var createApp = AppBridge.default;
                 var app = createApp({
-                    apiKey: "{{ \Osiset\ShopifyApp\Util::getShopifyConfig('api_key', $shopDomain ?? Auth::user()->name ) }}",
-                    shopOrigin: "{{ $shopDomain ?? Auth::user()->name }}",
-                    host: "{{ \Request::get('host') }}",
-                    forceRedirect: true,
+                    apiKey: '{{ config('shopify-app.api_key') }}',
+                    shopOrigin: '{{ Auth::user()->name }}',
+                    forceRedirect: false,
                 });
             </script>
-            @include('shopify-app::partials.token_handler')
+
             @include('shopify-app::partials.flash_messages')
         @endif
+
         @yield('scripts')
+
+        <script src="{{asset('js/app.js')}}"></script>
+
     </body>
 </html>

@@ -9,20 +9,27 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                        <a href="/" class="@if (Request::path() == '/') bg-gray-900 @endif text-white px-3 py-2 rounded-md text-sm font-medium"
                             aria-current="page">Dashboard</a>
                         <a href="/products"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
-
-                        <a href=""
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Customers</a>
-
-                        <a href=""
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Settings</a>
+                            class="@if (Request::path() == 'products') bg-gray-900 @endif ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                            Products
+                        </a>
+                        <a href="/customers"
+                            class="@if (Request::path() == 'customers') bg-gray-900 @endif ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                            Customers
+                        </a>
+                        <a href="/settings"
+                            class="@if (Request::path() == 'settings') bg-gray-900 @endif ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                            Settings
+                        </a>
+                        <a href="/test"
+                            class="@if (Request::path() == 'test') bg-gray-900 @endif ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                            Test
+                        </a>
                     </div>
                 </div>
             </div>
-
             <div class="-mr-2 flex md:hidden">
                 <!-- Mobile menu button -->
                 <button type="button"
@@ -30,20 +37,18 @@
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!--
-                Heroicon name: outline/menu
-
-                Menu open: "hidden", Menu closed: "block"
-              -->
+                        Heroicon name: outline/menu
+                        Menu open: "hidden", Menu closed: "block"
+                    -->
                     <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     <!--
-                Heroicon name: outline/x
-
-                Menu open: "block", Menu closed: "hidden"
-              -->
+                        Heroicon name: outline/x
+                        Menu open: "block", Menu closed: "hidden"
+                    -->
                     <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -53,23 +58,18 @@
             </div>
         </div>
     </div>
-
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="md:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">Dashboard</a>
-
             <a href="#"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-
             <a href="#"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
             <a href="#"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-
             <a href="#"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
         </div>
@@ -99,10 +99,8 @@
                 <a href="#"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your
                     Profile</a>
-
                 <a href="#"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
-
                 <a href="#"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign
                     out</a>
